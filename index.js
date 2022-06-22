@@ -3,7 +3,8 @@ var bodyparser = require('body-parser')
 var mongoose = require('mongoose')
 var router = require('./route')
 
-mongoose.connect("mongodb+srv://fenilbabariya:410mongo@cluster0.ttnszx3.mongodb.net/movie?retryWrites=true&w=majority").then(()=>{
+mongoose.connect("mongodb+srv://Jay:rP29B3S0EOc4bnxd@cluster0.01tdt.mongodb.net/?retryWrites=true&w=majority").then(()=>{
+    //rP29B3S0EOc4bnxd
     console.log("DB Connected");
 
     var app = express();
