@@ -1,19 +1,20 @@
-const bodyParser = require('body-parser');
-const { default: mongoose } = require('mongoose');
-var route = require('./route');
-mongoose.connect("").then(()=>{
-    console.log("DB connected");
+var express = require('express')
+var bodyparser = require('body-parser')
+var mongoose = require('mongoose')
+var router = require('./route')
 
-    app = express();
-    app.use(bodyParser.urlencoded)
-    ({extends:false})
+mongoose.connect("mongodb+srv://fenilbabariya:410mongo@cluster0.ttnszx3.mongodb.net/movie?retryWrites=true&w=majority").then(()=>{
+    console.log("DB Connected");
+
+    var app = express();
+    app.use(bodyparser.urlencoded({extended:false}))
     app.use(express.json())
-    app.use('/api,route')
+    app.use('/api',router);
 
-    app.listen(5000,()=>{
-        console.log("server started at 5000");
-
+    app.listen(process.env.PORT || 3000,()=>{
+    console.log("server started");
     })
-}).catch((err) =>{
-    console.log(err);
+
+}).catch((err)=>{
+    console.log(err)
 })

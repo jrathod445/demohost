@@ -1,14 +1,11 @@
-const { Router } = require('express');
-var express = require('express');
-var route = express.Router();
-var Movie = ('./Models/Movies')
+var express = require('express')
+var router = express.Router();
+var movie = require('./Model/movie')
 
-//fetching data
-Router.get('movies',async(req,res) => {
-    const iMovie = await 
-    Movie.find();
-    res.send(iMovie);
+router.get('/movies',async(req,res)=>{
+    var imovie = await movie.find();
+    res.send(imovie)
+    // res.sendFile("index.html",{root:__dirname});
 })
 
-//for posting data
-
+module.exports = router;
